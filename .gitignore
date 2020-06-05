@@ -1,3 +1,4 @@
 test.db
 test.rest
 restapi
+.env
