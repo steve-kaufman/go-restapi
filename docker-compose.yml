@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "restapi"
+  api:
+    container_name: go-restapi
+    restart: always
+    build: .
+    ports:
+      - 8000:8000
+    environment: 
+      DB_PASSWORD: "${DB_PASSWORD}"
